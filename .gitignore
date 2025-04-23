@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.wav
+*.mp3
+beat_data.json
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Oo]bj/
+*.unitypackage
+*.csproj
+*.sln
+
+# OS
+.DS_Store
+
+# VS Code
+.vscode/

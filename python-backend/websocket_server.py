@@ -11,14 +11,17 @@ bpm = beat_data["bpm"]
 
 print(f"Loaded {len(beats)} beats at {bpm} BPM")
 
-# WebSocket handler
-async def send_beats(websocket, path):
+async def send_beats(websocket):
     print("Client connected.")
-    for beat_time in beats:
+    for i in range(len(beats)):
+        beat_time = beats[i]
         message = json.dumps({"beat": beat_time})
         await websocket.send(message)
         print(f"Sent beat: {beat_time}")
-        await asyncio.sleep(60.0 / bpm)
+
+        if i < len(beats) - 1:
+            interval = beats[i + 1] - beats[i]
+            await asyncio.sleep(interval)
     print("All beats sent.")
 
 async def main():
